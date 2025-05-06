@@ -1,0 +1,8 @@
+.judul {
+  display: -webkit-box; /* Wajib untuk line-clamp */
+  -webkit-line-clamp: 2; /* Batasi maksimal 2 baris */
+  -webkit-box-orient: vertical; /* Orientasi vertikal */
+  overflow: hidden; /* Sembunyikan teks yang melebihi */
+  text-overflow: ellipsis; /* Tambahkan ... di akhir */
+  word-break: break-word;
+}
