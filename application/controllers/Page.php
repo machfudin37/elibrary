@@ -88,7 +88,7 @@ class Page extends CI_Controller
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT)
             ];
             if ($this->db->insert('siswa', $data)) {
-                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Berhasil Registrasi!<br>No Registrasi anda adalah <strong>' . $no_reg . '</strong>. Silahkan catat dan gunakan untuk login.</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Berhasil Registrasi!<br>No Registrasi anda adalah <strong>' . $no_reg . '</strong>.</div>');
                 redirect('/page/login');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Gagal Registrasi!.</div>');

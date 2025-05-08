@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 02 Des 2021 pada 07.19
--- Versi server: 10.4.22-MariaDB
--- Versi PHP: 8.0.13
+-- Host: localhost
+-- Generation Time: May 08, 2025 at 05:04 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -36,7 +37,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `username`, `nama_lengkap`, `password`, `status`) VALUES
@@ -45,29 +46,7 @@ INSERT INTO `admin` (`id`, `username`, `nama_lengkap`, `password`, `status`) VAL
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `antrian`
---
-
-CREATE TABLE `antrian` (
-  `no_ant` int(11) NOT NULL,
-  `no_reg` char(6) NOT NULL,
-  `kd_buku` char(5) NOT NULL,
-  `tgl_pinjam` date NOT NULL,
-  `nama_siswa` varchar(50) NOT NULL,
-  `judul_buku` varchar(100) CHARACTER SET latin1 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `antrian`
---
-
-INSERT INTO `antrian` (`no_ant`, `no_reg`, `kd_buku`, `tgl_pinjam`, `nama_siswa`, `judul_buku`) VALUES
-(1, 'REG001', 'BK005', '2021-12-01', 'Biru Epa Damainingati', 'Perancangan Web dengan Fireworks dan Dreamweaver MX');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `buku`
+-- Table structure for table `buku`
 --
 
 CREATE TABLE `buku` (
@@ -83,11 +62,11 @@ CREATE TABLE `buku` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `buku`
+-- Dumping data for table `buku`
 --
 
 INSERT INTO `buku` (`id`, `kd_buku`, `judul_buku`, `sampul`, `penerbit`, `pengarang`, `tahun_terbit`, `nomor_rak`, `jumlah`) VALUES
-(7, 'BK005', 'Perancangan Web dengan Fireworks dan Dreamweaver MX', 'Perancangan_Web_dengan_Fireworks_dan_Dreamweaver_MX.jpg', 'Gava Media', 'Bunafit Nugroho', '2005', 12, 100),
+(7, 'BK005', 'Perancangan Web dengan Fireworks dan Dreamweaver MX', 'Perancangan_Web_dengan_Fireworks_dan_Dreamweaver_MX.jpg', 'Gava Media', 'Bunafit Nugroho', '2005', 13, 100),
 (8, 'BK006', ' Cascading Style Sheets (CSS)', '204919.jpg', 'Gava Media', 'Bunafit Nugroho', '2004', 13, 100),
 (9, 'BK007', 'Dasar pemrograman python 3', 'Dasar_pemrograman_python_3.jpg', 'Andi, 2018 dan CV Andi Offset', 'Abdul Kadir (penulis) Maya (editor) Dian Arum (korektor)', '2018', 13, 100),
 (10, 'BK008', ' Dasar pemrograman web dengan PHP', 'Dasar_pemrograman_web_dengan_PHP.jpg', 'Yogyakarta : Deepublish', 'Canggih Ajika Pamungkas', '2017', 13, 100);
@@ -95,7 +74,7 @@ INSERT INTO `buku` (`id`, `kd_buku`, `judul_buku`, `sampul`, `penerbit`, `pengar
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `siswa`
+-- Table structure for table `siswa`
 --
 
 CREATE TABLE `siswa` (
@@ -108,16 +87,16 @@ CREATE TABLE `siswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `siswa`
+-- Dumping data for table `siswa`
 --
 
 INSERT INTO `siswa` (`id`, `no_reg`, `nama_siswa`, `jenis_kelamin`, `kelas`, `password`) VALUES
-(1, 'REG001', 'Biru Epa Damainingati', 'P', 'S1', '$2y$10$HleR8.YQJvLy8D0okmZNYezFejD7B0JqJhm8vVN/nToNirlOlV9b.');
+(6, 'REG001', 'machfudin', 'L', 'S1', '$2y$10$qthJTfvv8agyt7Yw.YpXquRd99bnh9IwMVHUJ46d2KoMB6kBeg/aa');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaksi`
+-- Table structure for table `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -132,82 +111,70 @@ CREATE TABLE `transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `transaksi`
+-- Dumping data for table `transaksi`
 --
 
 INSERT INTO `transaksi` (`id`, `no_reg`, `kd_buku`, `tgl_pinjam`, `tgl_kembali`, `denda`, `nama_siswa`, `judul_buku`) VALUES
-(1, 'REG001', 'BK005', '2021-12-01', '2021-12-02', 0, 'Biru Epa Damainingati', 'Perancangan Web dengan Fireworks dan Dreamweaver MX');
+(7, 'REG001', 'BK008', '2025-05-08', '2025-05-08', 0, 'machfudin', ' Dasar pemrograman web dengan PHP');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indeks untuk tabel `antrian`
---
-ALTER TABLE `antrian`
-  ADD PRIMARY KEY (`no_ant`);
-
---
--- Indeks untuk tabel `buku`
+-- Indexes for table `buku`
 --
 ALTER TABLE `buku`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `kd_buku` (`kd_buku`);
 
 --
--- Indeks untuk tabel `siswa`
+-- Indexes for table `siswa`
 --
 ALTER TABLE `siswa`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `no_reg` (`no_reg`);
 
 --
--- Indeks untuk tabel `transaksi`
+-- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `antrian`
---
-ALTER TABLE `antrian`
-  MODIFY `no_ant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT untuk tabel `buku`
+-- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `siswa`
+-- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `transaksi`
+-- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

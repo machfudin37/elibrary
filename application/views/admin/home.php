@@ -83,7 +83,6 @@
        	<div class="col-xs-12">
            	<div class="box">
                	<div class="box-body">
-					<button class="btn btn-primary" style="margin-bottom:10px;" data-toggle="modal" data-target="#add-data"><i class="fa fa-plus"></i> Tambah Data</button>
 					<?= $this->session->flashdata('message'); ?>
                     <table  id="dataTable" class="table display responsive nowrap" style="width:100%">
                         <thead class="bg-primary">
@@ -133,51 +132,6 @@
 </section>
 <!-- /.content -->
 
-<div class="modal fade" id="add-data">
-	<div class="modal-dialog">
-	<div class="modal-content">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span></button>
-			<h4 class="modal-title">Tambah Data</h4>
-		</div>
-		<form action="<?= base_url('transaksi/peminjaman') ?>" method="POST" role="form">
-			<div class="modal-body">
-				<div class="form-group">
-					<label for="no_reg">No Registrasi</label>
-					<input type="text" class="form-control" id="no_reg" name="no_reg" readonly required>
-				</div>
-				<div class="form-group">
-					<label for="nama_user">Nama Peminjam</label>
-					<input type="text" class="form-control" id="nama_user" name="nama_user" required>
-				</div>
-				<div class="form-group">
-					<label for="kd_buku">Kode Buku</label>
-					<input type="text" class="form-control" id="kd_buku" name="kd_buku" readonly required>
-				</div>
-				<div class="form-group">
-					<label for="judul_buku">Judul Buku</label>
-					<input type="text" class="form-control" id="judul_buku" name="judul_buku" required>
-				</div>
-				<div class="form-group">
-					<label for="tgl_pinjam">Tanggal Pinjam</label>
-					<input type="date" class="form-control" id="tgl_pinjam" name="tgl_pinjam" value="<?= date('Y-m-d') ?>" required>
-					<small class="text-danger">
-						*durasi peminjaman maksimal 7 hari, lebih dari itu akan dikenakan denda
-					</small>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="submit" class="btn btn-primary">Submit</button>
-			</div>
-		</form>
-	</div>
-	<!-- /.modal-content -->
-	</div>
-	<!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
 
 <div class="modal fade" id="modal-kembali">
 	<div class="modal-dialog">

@@ -37,32 +37,6 @@ class Transaksi extends CI_Controller
         $this->template->load('admin/template', 'admin/transaksi/kembali', $data);
     }
 
-    public function peminjaman()
-    {
-        if (!$this->session->userdata('isLogin') || $this->session->userdata('hak_akses') != 'admin') {
-            redirect(base_url());
-        }
-
-        $kd_buku = $this->input->post('kd_buku');
-        $buku = $this->db->get_where('buku', ['kd_buku'=>$kd_buku])->row_array();
-        $jml_buku = (int)$buku['jumlah'];
-        $stokbaru = $jml_buku - 1;
-
-        $data = [
-            'no_reg'     => $this->input->post('no_reg'),
-            'kd_buku'    => $kd_buku,
-            'tgl_pinjam' => $this->input->post('tgl_pinjam'),
-        ];
-        
-        if($this->db->insert('transaksi', $data) && $this->db->update('buku', ['jumlah'=>$stokbaru], ['kd_buku'=>$kd_buku])){
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Berhasil Tambah Data!</div>');
-            redirect('/admin');
-        }else{
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Maaf, Gagal Tambah Data!</div>');
-            redirect('/admin');
-        }
-    }
-
     public function pengembalian($id)
     {
         if (!$this->session->userdata('isLogin') || $this->session->userdata('hak_akses') != 'admin') {
