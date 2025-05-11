@@ -10,6 +10,16 @@
 
 ------------
 
+## E Library
+E-Library merupakan aplikasi yang dibuat untuk staff perpustakaan dalam mengelola buku yang dipinjam kepada anggota perpustakaan. aplikasi ini dibangun menggunakan Framework Codeigniter versi 3.
+
+------------
+
+## Demo
+Demo website dapat dilihat disini. [Lihat Demo](https://youtu.be/TFFX0olZdOE)
+
+------------
+
  ### 👤 Default Account for testing
 	
 **Admin Default Account**
