@@ -1,11 +1,11 @@
 <h1 align="center">Selamat datang di E - Library! 👋</h1>
 
  ### Halaman Admin
-![Admin Panel](https://github.com/adeskriwil/elibrary/blob/main/admin-panel.PNG?raw=true)
+![Admin Panel](https://github.com/machfudin37/elibrary/blob/main/admin-panel.PNG?raw=true)
 
 
  ### Halaman User
-![User Interface](https://github.com/adeskriwil/elibrary/blob/main/user-panel.PNG?raw=true)
+![User Interface](https://github.com/machfudin37/elibrary/blob/main/user-panel.PNG?raw=true)
 
 
 ------------
